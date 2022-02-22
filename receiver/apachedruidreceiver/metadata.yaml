@@ -1,0 +1,21 @@
+name: apachedruidreceiver
+
+attributes:
+  data_source:
+    description: The actual datasource of the metric.
+  host:
+    description: The host which is responsible(emitted) for the metrics
+  service_name:
+    description: The service which emitted this metrics
+
+
+metrics:
+  apachedruid.query_time:
+    enabled: true
+    description: Milliseconds taken to complete a query.
+    unit: 1
+    sum:
+      value_type: int
+      monotonic: false
+      aggregation: cumulative
+    attributes: [ data_source,host,service_name ]
